@@ -40,4 +40,12 @@ class EstateController extends Controller
 
         return EstateResource::collection($query->get());
     }
+
+    public function getMinAndMaxPrice()
+    {
+        return response()->json([
+            'min' => Estate::min('price'),
+            'max' => Estate::max('price'),
+        ]);
+    }
 }
